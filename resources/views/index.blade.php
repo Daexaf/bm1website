@@ -42,7 +42,7 @@
                       <td>{{$item->name}}</td>
                       <td>{{$item->email}}</td>
                       <td>
-                        <a href="" class="btn btn-primary"><i class="fas fa-pen"> Edit</i></a>
+                        <a href="{{route('user.edit', ['id'=>$item->id])}}" class="btn btn-primary"><i class="fas fa-pen"> Edit</i></a>
                         <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"> Delete</i></a>
                       </td>
                     </tr>
