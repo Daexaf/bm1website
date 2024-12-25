@@ -1,17 +1,18 @@
 @extends('layout.main')
-@section('content')
+@section('userContent')
 <div class="container">
     <div class="page-inner">
       <div
         class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
       >
         <div>
-          <h3 class="fw-bold">Tambah User</h3>
+          <h3 class="fw-bold">Edit User</h3>
         </div>
       </div>
       {{-- konten table --}}
-      <form action="{{route('user.store')}}" method="POST">
+      <form action="{{route('user.update', ['id'=>$data->id])}}" method="POST">
         @csrf
+        @method('PUT')
         <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -29,6 +30,7 @@
                               id="name"
                               name='name'
                               placeholder="Enter Name"
+                              value="{{$data->name}}"
                             />
                             @error('name')
                                 <small>{{$message}}</small>
@@ -43,6 +45,7 @@
                           id="email"
                           name="email"
                           placeholder="Enter Email"
+                          value="{{$data->email}}"
                         />
                         @error('email')
                             <small>{{$message}}</small>
