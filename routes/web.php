@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CabangController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,16 +21,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', [HomeController::class, 'home']);
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
+
 Route::get('/test', [HomeController::class, 'dashboard']);
 
-// Route::get('/admin', [AdminController::class, 'index'])->name('index');
-// Route::get('/create', [AdminController::class, 'create'])->name('user.create');
-// Route::post('/store', [AdminController::class, 'store'])->name('user.store');
-// Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('user.edit');
-// Route::put('/update/{id}', [AdminController::class, 'update'])->name('user.update');
-// Route::delete('/delete/{id}', [AdminController::class, 'delete'])->name('user.delete');
 
-Route::prefix('admin')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' =>['auth'], 'as' => 'admin.'], function(){
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::get('/user/create', [AdminController::class, 'create'])->name('user.create');
     Route::post('/user/store', [AdminController::class, 'store'])->name('user.store');
@@ -44,4 +47,3 @@ Route::prefix('admin')->group(function () {
     Route::put('/cabang/update/{id}', [CabangController::class, 'update'])->name('cabang.update');
     Route::delete('/cabang/delete/{id}', [CabangController::class, 'delete'])->name('cabang.delete');
 });
-

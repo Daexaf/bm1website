@@ -12,7 +12,7 @@
       {{-- konten table --}}
       <div class="row">
         <div class="col-md-12">
-            <a href="{{route('user.create')}}" class="btn btn-primary mb-3">Tambah Data</a>
+            <a href="{{route('admin.user.create')}}" class="btn btn-primary mb-3">Tambah Data</a>
           <div class="card">
             <div class="card-header">
               <h4 class="card-title">User List</h4>
@@ -38,7 +38,7 @@
                       <td>{{$item->name}}</td>
                       <td>{{$item->email}}</td>
                       <td>
-                        <a href="{{route('user.edit', ['id'=>$item->id])}}" class="btn btn-primary"><i class="fas fa-pen"> Edit</i></a>
+                        <a href="{{route('admin.user.edit', ['id'=>$item->id])}}" class="btn btn-primary"><i class="fas fa-pen"> Edit</i></a>
                         <a data-bs-toggle="modal" data-bs-target="#Modal-hapus{{$item->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"> Delete</i></a>
                       </td>
                     </tr>
@@ -57,7 +57,7 @@
                             <p>Apakah kamu yakin ingin menghapus data user {{$item->name}}<b></b></p>
                           </div>
                           <div class="modal-footer">
-                            <form action="{{route('user.delete',['id'=>$item->id])}}" method="POST">
+                            <form action="{{route('admin.user.delete',['id'=>$item->id])}}" method="POST">
                               @csrf
                               @method('DELETE')
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

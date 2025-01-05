@@ -9,7 +9,7 @@
     />
     <link
       rel="icon"
-      href="{{asset('lte/assets/img/kaiadmin/favicon.ico')}}"
+      href="{{asset('img/logo/logo.jpg')}}"
       type="image/x-icon"
     />
 
@@ -48,9 +48,9 @@
         <div class="sidebar-logo">
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
-            <a href="{{route('index')}}" class="logo">
+            <a href="{{route('admin.index')}}" class="logo">
               <img
-                src="{{asset('lte/assets/img/kaiadmin/logo_light.svg')}}"
+                src="{{asset('img/logo/logo.jpg')}}"
                 alt="navbar brand"
                 class="navbar-brand"
                 height="20"
@@ -128,11 +128,20 @@
                   <span class="caret"></span>
                 </a>
                 <div class="collapse" id="cabang">
-                  <a href="{{ route('cabang.index') }}" class="nav-link">List Cabang</a>
+                  <a href="{{ route('admin.cabang.index') }}" class="nav-link">List Cabang</a>
                   <!-- Tambahkan link lainnya jika perlu -->
                 </div>
               </li>
-              
+              <li class="nav-item">
+                <!-- Tombol Logout -->
+                <form id="logout-form" action="{{ route('logout') }}" method="get" style="display: none;">
+                  @csrf
+                </form>
+                <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
