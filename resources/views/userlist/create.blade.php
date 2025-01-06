@@ -10,7 +10,7 @@
         </div>
       </div>
       {{-- konten table --}}
-      <form action="{{route('user.store')}}" method="POST">
+      <form action="{{route('admin.user.store')}}" method="POST">
         @csrf
         <div class="row">
             <div class="col-md-12">

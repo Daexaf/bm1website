@@ -37,7 +37,7 @@ class CabangController extends Controller
         $data['phone'] = $req->phone;
 
         Cabang::create($data);
-        return redirect()->route('cabang.index');
+        return redirect()->route('admin.cabang.index');
     }
 
     public function edit(Request $req,$id){
@@ -66,7 +66,7 @@ class CabangController extends Controller
         // }
 
         Cabang::whereId($id)->update($data);
-        return redirect()->route('cabang.index');
+        return redirect()->route('admin.cabang.index');
     }
 
     public function delete(Request $req, $id){
@@ -76,6 +76,6 @@ class CabangController extends Controller
             $data->delete();
         }
 
-        return redirect()->route('cabang.index');
+        return redirect()->route('admin.cabang.index');
     }
 }

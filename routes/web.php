@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BautController;
 use App\Http\Controllers\CabangController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OliController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,4 +48,18 @@ Route::group(['prefix' => 'admin', 'middleware' =>['auth'], 'as' => 'admin.'], f
     Route::get('/cabang/edit/{id}', [CabangController::class, 'edit'])->name('cabang.edit');
     Route::put('/cabang/update/{id}', [CabangController::class, 'update'])->name('cabang.update');
     Route::delete('/cabang/delete/{id}', [CabangController::class, 'delete'])->name('cabang.delete');
+
+    Route::get('/oli', [OliController::class, 'index'])->name('oli.index');
+    Route::get('/oli/create', [OliController::class, 'create'])->name('oli.create');
+    Route::post('/oli/store', [OliController::class, 'store'])->name('oli.store');
+    Route::get('/oli/edit/{id}', [OliController::class, 'edit'])->name('oli.edit');
+    Route::put('/oli/update/{id}', [OliController::class, 'update'])->name('oli.update');
+    Route::delete('/oli/delete/{id}', [OliController::class, 'delete'])->name('oli.delete');
+
+    Route::get('/baut', [BautController::class, 'index'])->name('baut.index');
+    Route::get('/baut/create', [BautController::class, 'create'])->name('baut.create');
+    Route::post('/baut/store', [BautController::class, 'store'])->name('baut.store');
+    Route::get('/baut/edit/{id}', [BautController::class, 'edit'])->name('baut.edit');
+    Route::put('/baut/update/{id}', [BautController::class, 'update'])->name('baut.update');
+    Route::delete('/baut/delete/{id}', [BautController::class, 'delete'])->name('baut.delete');
 });

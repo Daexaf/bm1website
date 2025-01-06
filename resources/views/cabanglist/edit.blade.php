@@ -10,7 +10,7 @@
         </div>
       </div>
       {{-- konten table --}}
-      <form action="{{route('cabang.update', ['id'=>$data->id])}}" method="POST">
+      <form action="{{route('admin.cabang.update', ['id'=>$data->id])}}" method="POST">
         @csrf
         @method('PUT')
         <div class="row">

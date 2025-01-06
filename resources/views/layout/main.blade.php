@@ -109,12 +109,12 @@
                 <div class="collapse" id="product">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{asset('lte/components/avatars.html')}}">
+                      <a href="{{ route('admin.oli.index') }}">
                         <span class="sub-item">Oli</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{asset('lte/components/buttons.html')}}">
+                      <a href="{{ route('admin.baut.index') }}">
                         <span class="sub-item">Baut</span>
                       </a>
                     </li>
@@ -537,6 +537,8 @@
           @yield('userContent')
           @yield('productContent')
           @yield('cabangContent')
+          @yield('oliContent')
+          @yield('bautContent')
         
         {{-- <div class="container">
           <div class="page-inner">
