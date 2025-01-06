@@ -36,6 +36,7 @@ class OliController extends Controller
             'npt' => 'nullable',
             'npb' => 'nullable',
             'barcode' => 'nullable',
+            'is_active' => 'nullable',
         ]);
         if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
         // dd($req->all());
@@ -58,6 +59,7 @@ class OliController extends Controller
         $data['npt'] = $req->npt;
         $data['npb'] = $req->npb;
         $data['barcode'] = $req->barcode;
+        $data['is_active'] = $req->is_active;
 
         ProductOil::create($data);
         return redirect()->route('admin.oli.index');
@@ -86,6 +88,7 @@ class OliController extends Controller
             'npt' => 'nullable',
             'npb' => 'nullable',
             'barcode' => 'nullable',
+            'is_active' => 'nullable',
         ]);
 
         if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
@@ -105,6 +108,7 @@ class OliController extends Controller
         $data['npt'] = $req->npt;
         $data['npb'] = $req->npb;
         $data['barcode'] = $req->barcode;
+        $data['is_active'] = $req->is_active;
 
         $photo = $req->file('image1');
 

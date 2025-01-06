@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cabang;
+use App\Models\ProductBolt;
+use App\Models\ProductCategory;
+use App\Models\ProductOil;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +19,10 @@ class HomeController extends Controller
 
     public function home(){
         $cabang = Cabang::get();
-        return view('home', compact('cabang'));
+        $oli = ProductOil::with('category')->get();
+        $baut = ProductBolt::with('category')->get();
+        $categories = ProductCategory::get();
+        return view('home.home', compact('cabang', 'oli', 'baut', 'categories'));
     }
 
     public function index(){

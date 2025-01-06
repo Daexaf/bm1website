@@ -198,6 +198,7 @@
                                 <small>{{$message}}</small>
                             @enderror
                           </div>
+                          <input type="hidden" name="is_active" value="1" />
                     </div>
                   </div>
                 <div class="card-action">

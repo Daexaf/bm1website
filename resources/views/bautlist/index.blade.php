@@ -6,7 +6,7 @@
         class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
       >
         <div>
-          <h3 class="fw-bold mb-3">Data Product Oli</h3>
+          <h3 class="fw-bold mb-3">Data Product Baut</h3>
         </div>
       </div>
       {{-- konten table --}}
@@ -15,7 +15,7 @@
             <a href="{{route('admin.baut.create')}}" class="btn btn-primary mb-3">Tambah Data</a>
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">cabang List</h4>
+              <h4 class="card-title">Product Baut List</h4>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -39,6 +39,7 @@
                     <th>Penggunaan 1</th>
                     <th>Penggunaan 2</th>
                     <th>Penggunaan 3</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -99,6 +100,13 @@
                           <img src="{{ asset('storage/product-baut-modal/'.$item->image_modal3) }}" width="100" alt="">
                         @else
                           -
+                        @endif
+                      </td>
+                      <td>
+                        @if($item->is_active)
+                            <p>Aktif</p>
+                        @else
+                          <p>Non Aktif</p>
                         @endif
                       </td>
                       <td>

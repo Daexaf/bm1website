@@ -219,6 +219,21 @@
                                             <small>{{ $message }}</small>
                                         @enderror
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="is_active">Is Active</label><br>
+                                        <div>
+                                          <input type="radio" id="is_active" name="is_active" value="1" {{ old('is_active') == 1 ? 'checked' : '' }}>
+                                          <label for="is_active">Active</label>
+                                        </div>
+                                        <div>
+                                          <input type="radio" id="inactive" name="is_active" value="0" {{ old('is_active') == 0 ? 'checked' : '' }}>
+                                          <label for="inactive">Inactive</label>
+                                        </div>
+                                        @error('is_active')
+                                          <small>{{$message}}</small>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-action">

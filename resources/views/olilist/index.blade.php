@@ -39,6 +39,8 @@
                       <th>NPT</th>
                       <th>NPB</th>
                       <th>Barcode</th>
+                      <th>Aktif</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -88,6 +90,13 @@
                       <td>{{$item->npt}}</td>
                       <td>{{$item->npb}}</td>
                       <td>{{$item->barcode}}</td>
+                      <td>
+                        @if($item->is_active)
+                            <p>aktif</p>
+                        @else
+                          <p>non aktif</p>
+                        @endif
+                      </td>
                       <td>
                         <a href="{{route('admin.oli.edit', ['id'=>$item->id])}}" class="btn btn-primary"><i class="fas fa-pen"> Edit</i></a>
                         <a data-bs-toggle="modal" data-bs-target="#Modal-hapus{{$item->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"> Delete</i></a>
