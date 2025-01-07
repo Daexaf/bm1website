@@ -23,7 +23,7 @@ class HomeController extends Controller
         $oli = ProductOil::with('category')->where('is_active', true)->get();
         $baut = ProductBolt::with('category')->where('is_active', true)->get();
         $categories = ProductCategory::get();
-        return view('home.home', compact('cabang', 'oli', 'baut', 'categories'));
+        return view('home.index', compact('cabang', 'oli', 'baut', 'categories'));
     }
 
     public function index(){
