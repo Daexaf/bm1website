@@ -17,8 +17,9 @@ class ProductController extends Controller
     }
 
     public function product(){
-        $productoli = ProductOil::get();
-        $productbaut = ProductBolt::get();
-        return view('home.detail', compact('productoli', 'productbaut'));
+        $oli = ProductOil::with('category')->where('is_active', true)->get();
+        $baut = ProductBolt::with('category')->where('is_active', true)->get();
+        $categories = ProductCategory::get();
+        return view('home.product', compact('oli', 'baut', 'categories'));
     }
 }

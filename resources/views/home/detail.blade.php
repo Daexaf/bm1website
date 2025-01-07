@@ -41,21 +41,22 @@
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-        <a href="{{asset('home')}} " class="logo d-flex align-items-center">
+        <a href="{{route('home')}} " class="logo d-flex align-items-center">
             <img src="{{asset('img/logo/logo.jpg')}}" alt="Logo" class="logo d-flex align-items-center" style="max-height: 50px;"> 
         </a>
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Partner</a></li>
-          <li class="dropdown"><a href="#portofolio"><span>Product</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="{{route('home')}}">Home</a></li>
+          <li><a href="{{route('home')}}#about">About</a></li>
+          <li><a href="{{route('home')}}#partner">Partner</a></li>
+          <li><a href="{{route('product')}}">Product</a></li>
+          {{-- <li class="dropdown"><a href="{{route('product')}}"><span>Product</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Oli</a></li>
-              <li><a href="#">Baut</a></li>
+              <li><a href="{{route('home')}}#product">Oli</a></li>
+              <li><a href="{{route('home')}}#product">Baut</a></li>
             </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
+          </li> --}}
+          <li><a href="{{route('home')}}#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -129,56 +130,55 @@
             <div class="row justify-content-between gy-4 mt-4">
             <div class="col-lg-8" data-aos="fade-up">
                 <div class="portfolio-description">
-                <h2>{{$baut->coding}}</h2>
-                <p>
-                    {{$baut->kode}}
-                </p>
-                <p>
-                    {{$baut->keterangan}}
-                </p>
+                  <h2>Coding: {{$baut->coding}}</h2>
+                  <p>Kode: {{$baut->kode}}</p>
+                  <p>Ukuran: {{$baut->ukuran}}</p>
+                  <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Contoh Penggunaan</h4>
+                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item fiselr-app">
+                      <img src="{{asset('storage/product-baut-modal/'.$baut->image_modal1)}}" class="img-fluid" alt="">
+                      <div class="portfolio-info">
+                        <a href="{{asset('storage/product-baut-modal/'.$baut->image_modal1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      </div>
+                    </div><!-- End Portfolio Item -->
 
-                <div class="testimonial-item">
-                    <a class="btn btn-primary" href="{{$baut->link1}}">Link 1</a>
-                    <a class="btn btn-primary" href="{{$baut->link2}}">Link 2</a>
-                    <a class="btn btn-primary" href="{{$baut->link3}}">Link 3</a>
-                    <a class="btn btn-primary" href="{{$baut->link4}}">Link 4</a>
-                </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item fiselr-app">
+                      <img src="{{asset('storage/product-baut-modal/'.$baut->image_modal2)}}" class="img-fluid" alt="">
+                      <div class="portfolio-info">
+                        <a href="{{asset('storage/product-baut-modal/'.$baut->image_modal2)}}" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      </div>
+                    </div><!-- End Portfolio Item -->
 
-                <p>
-                    Impedit ipsum quae et aliquid doloribus et voluptatem quasi. Perspiciatis occaecati earum et magnam animi. Quibusdam non qui ea vitae suscipit vitae sunt. Repudiandae incidunt cumque minus deserunt assumenda tempore. Delectus voluptas necessitatibus est.
-                </p>
-
-                <p>
-                    Sunt voluptatum sapiente facilis quo odio aut ipsum repellat debitis. Molestiae et autem libero. Explicabo et quod necessitatibus similique quis dolor eum. Numquam eaque praesentium rem et qui nesciunt.
-                </p>
+                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item fiselr-app">
+                      <img src="{{asset('storage/product-baut-modal/'.$baut->image_modal3)}}" class="img-fluid" alt="">
+                      <div class="portfolio-info">
+                        <a href="{{asset('storage/product-baut-modal/'.$baut->image_modal3)}}" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      </div>
+                    </div><!-- End Portfolio Item -->
+                  </div>
 
                 </div>
             </div>
 
             <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
                 <div class="portfolio-info">
-                <h3>Project information</h3>
+                <h3>Informasi Produk</h3>
                 <ul>
-                    <li><strong>Category</strong> Web design</li>
-                    <li><strong>Client</strong> ASU Company</li>
-                    <li><strong>Project date</strong> 01 March, 2020</li>
-                    <li><strong>Project URL</strong> <a href="#">www.example.com</a></li>
-                    <li><a href="#" class="btn-visit align-self-start">Visit Website</a></li>
+                    <li><strong>Jenis Baut</strong>{{$baut->deskripsi}}</li>
+                    <li><strong>Kunci</strong>{{$baut->kunci}}</li>
                 </ul>
                 </div>
             </div>
             </div>
             @endforeach
         </div>
-
     </section><!-- /Portfolio Details Section -->
-
   </main>
 
   <footer id="footer" class="footer dark-background">
     <div class="container">
       <h3 class="sitename">BM1 OIL</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <p>Rajanya sintetik oli motor</p>
       <div class="social-links d-flex justify-content-center">
         <a href=""><i class="bi bi-twitter-x"></i></a>
         <a href=""><i class="bi bi-facebook"></i></a>

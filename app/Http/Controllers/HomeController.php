@@ -7,6 +7,7 @@ use App\Models\ProductBolt;
 use App\Models\ProductCategory;
 use App\Models\ProductOil;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -19,8 +20,8 @@ class HomeController extends Controller
 
     public function home(){
         $cabang = Cabang::get();
-        $oli = ProductOil::with('category')->get();
-        $baut = ProductBolt::with('category')->get();
+        $oli = ProductOil::with('category')->where('is_active', true)->get();
+        $baut = ProductBolt::with('category')->where('is_active', true)->get();
         $categories = ProductCategory::get();
         return view('home.home', compact('cabang', 'oli', 'baut', 'categories'));
     }

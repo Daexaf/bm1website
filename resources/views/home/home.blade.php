@@ -50,13 +50,14 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Partner</a></li>
-          <li class="dropdown"><a href="#portofolio"><span>Product</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="#partner">Partner</a></li>
+          <li><a href="{{route('product')}}">Product</a></li>
+          {{-- <li class="dropdown"><a href="{{route('product')}}"><span>Product</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Oli</a></li>
               <li><a href="#">Baut</a></li>
             </ul>
-          </li>
+          </li> --}}
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -75,9 +76,9 @@
         <!-- Slide 1 -->
         <div class="carousel-item active">
           <div class="carousel-container">
-            <h2 class="animate__animated animate__fadeInDown">Selamat Datang di Website <span>BM1 OIL</span></h2>
-            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            <h2 class="animate__animated animate__fadeInDown">Selamat Datang di Website BM1 OIL</h2>
+            <p class="animate__animated animate__fadeInUp">Rajanya sintetik oli motor</p>
+            {{-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> --}}
           </div>
         </div>
       </div>
@@ -167,9 +168,9 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <i class="bi bi-droplet" style="font-size: 3rem; display: block; margin: 0 auto;"></i>
-                <h3>Oli dengan Additive Berkualitas</h3>
+                <h3>Oli dengan bahan Sintetik Berkualitas</h3>
                 <p>
-                  <span>Oli dengan additive terbaik yang meningkatkan performa mesin dan memperpanjang usia kendaraan Anda.</span>
+                  <span>Oli dengan sintetik terbaik yang meningkatkan performa mesin dan memperpanjang usia kendaraan Anda.</span>
                 </p>
               </div>
             </div><!-- End testimonial item -->
@@ -250,19 +251,75 @@
         </ul><!-- End Tab Nav -->
       </div>
     </section><!-- /Features Section -->
-
-    <!-- Call To Action Section -->
     
+     <!-- Portfolio Section -->
+     <section id="product" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Product Unggulan</h2>
+        <p>Product Unggulan Kami</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            @foreach($categories as $category)
+                <li data-filter=".filter-{{ strtolower(str_replace(' ', '-', $category->name)) }}">{{ $category->name }}</li>
+            @endforeach
+        </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            @foreach($oli->take(3) as $oil)
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $oil->category->name)) }}">
+              <img src="{{asset('storage/product-oli/'.$oil->image1)}}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>{{$oil->name}}</h4>
+                <p>{{$oil->api}}</p>
+                <p>{{$oil->sae}}</p>
+                <p>{{$oil->content}}</p>
+                {{-- <a href="{{asset('storage/product-oli/'.$oil->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> --}}
+                <div class="mt-3">
+                  <a href="{{ route('detail.product', $oil->id) }}" title="More Details" class="details-link">
+                    <button class="btn btn-primary btn-block">More Details</button>
+                  </a>
+                </div>
+                {{-- <a href="{{ route('product.details', $oil->id) }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> --}}
+              </div>
+            </div><!-- End Portfolio Item -->
+            @endforeach
+
+            @foreach($baut->take(3) as $bolt)
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $bolt->category->name)) }}">
+              <img src="{{asset('storage/product-baut/'.$bolt->image1)}}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>{{$bolt->coding}}</h4>
+                <p>{{$bolt->kode}}</p>
+                <p>{{$bolt->ukuran}}</p>
+                {{-- <a href="{{asset('storage/product-baut/'.$bolt->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i>
+                </a> --}}
+                <div class="mb-3">
+                  <a href="{{ route('detail.product', $bolt->id) }}" title="More Details" class="details-link">
+                    <button class="btn btn-primary btn-block">More Details</button>
+                  </a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+            @endforeach
+          </div><!-- End Portfolio Container -->
+        </div>
+      </div>
+    </section><!-- /Portfolio Section -->
 
     <!-- Services Section -->
-    <section id="services" class="services section">
+    <section id="partner" class="services section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Partner</h2>
         <p>Where are our partner</p>
       </div><!-- End Section Title -->
-
       <div class="container">
         <div class="row gy-4">
           <div class="row gy-4">
@@ -282,96 +339,19 @@
               </div>
             @endforeach
           </div>
-
         </div>
-
       </div>
-
     </section><!-- /Services Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Product</h2>
-        <p>Lini Product yang kami miliki</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            @foreach($categories as $category)
-                <li data-filter=".filter-{{ strtolower(str_replace(' ', '-', $category->name)) }}">{{ $category->name }}</li>
-            @endforeach
-        </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            @foreach($oli as $oil)
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $oil->category->name)) }}">
-              <img src="{{asset('storage/product-oli/'.$oil->image1)}}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>{{$oil->name}}</h4>
-                <p>{{$oil->api}}</p>
-                <p>{{$oil->sae}}</p>
-                <p>{{$oil->content}}</p>
-                {{-- <a href="{{asset('storage/product-oli/'.$oil->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> --}}
-                <div class="mt-3">
-                  <a href="{{ route('detail.product', $oil->id) }}" title="More Details" class="details-link">
-                    <button class="btn btn-primary btn-block">More Details</button>
-                  </a>
-                </div>
-                {{-- <a href="{{ route('product.details', $oil->id) }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> --}}
-              </div>
-            </div><!-- End Portfolio Item -->
-            @endforeach
-
-            @foreach($baut as $bolt)
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $bolt->category->name)) }}">
-              <img src="{{asset('storage/product-baut/'.$bolt->image1)}}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>{{$bolt->coding}}</h4>
-                <p>{{$bolt->kode}}</p>
-                <p>{{$bolt->ukuran}}</p>
-                {{-- <a href="{{asset('storage/product-baut/'.$bolt->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i>
-                </a> --}}
-                <div class="mb-3">
-                  <a href="{{ route('detail.product', $bolt->id) }}" title="More Details" class="details-link">
-                    <button class="btn btn-primary btn-block">More Details</button>
-                  </a>
-                </div>
-                
-                {{-- <a href="{{ route('product.details', $oil->id) }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> --}}
-              </div>
-            </div><!-- End Portfolio Item -->
-            @endforeach
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-    
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
-
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
         <p>Contact Us</p>
       </div><!-- End Section Title -->
-
       <div class="container" data-aos="fade" data-aos-delay="100">
-
         <div class="row gy-4">
-
           <div class="col-lg-4">
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
@@ -380,7 +360,6 @@
                 <p>Pergudangan Green Sedayu Biz Park Blok DM 3 No 29, Jalan Daan Mogot Raya Km. 18, Kalideres, 3 No.8, RT.11/RW.6, Kalideres, Kec. Kalideres, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11840</p>
               </div>
             </div><!-- End Info Item -->
-
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
@@ -388,7 +367,6 @@
                 <p>(021) 22553411</p>
               </div>
             </div><!-- End Info Item -->
-
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
@@ -396,71 +374,46 @@
                 <p>birumegahabadi@yahoo.com</p>
               </div>
             </div><!-- End Info Item -->
-
           </div>
-
           <div class="col-lg-8">
             <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
-
                 <div class="col-md-6">
                   <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
                 </div>
-
                 <div class="col-md-6 ">
                   <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
                 </div>
-
                 <div class="col-md-12">
                   <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
                 </div>
-
                 <div class="col-md-12">
                   <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
                 </div>
-
                 <div class="col-md-12 text-center">
                   <div class="loading">Loading</div>
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
-
                   <button type="submit">Send Message</button>
                 </div>
-
               </div>
             </form>
           </div><!-- End Contact Form -->
-
         </div>
-
       </div>
-
     </section><!-- /Contact Section -->
-
   </main>
 
   <footer id="footer" class="footer dark-background">
     <div class="container">
-      <h3 class="sitename">Selecao</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <h3 class="sitename">BM1 OIL</h3>
+      <p>Rajanya sintetik oli motor</p>
       <div class="social-links d-flex justify-content-center">
         <a href=""><i class="bi bi-twitter-x"></i></a>
         <a href=""><i class="bi bi-facebook"></i></a>
         <a href=""><i class="bi bi-instagram"></i></a>
         <a href=""><i class="bi bi-skype"></i></a>
         <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
-      <div class="container">
-        <div class="copyright">
-          <span>Copyright</span> <strong class="px-1 sitename">Selecao</strong> <span>All Rights Reserved</span>
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
-        </div>
       </div>
     </div>
   </footer>

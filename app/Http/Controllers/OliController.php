@@ -83,7 +83,7 @@ class OliController extends Controller
             'link2' => 'nullable',
             'link3' => 'nullable',
             'link4' => 'nullable',
-            'image1' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'image1' => 'mimes:png,jpg,jpeg|max:2048',
             'sni' => 'nullable',
             'npt' => 'nullable',
             'npb' => 'nullable',
@@ -120,10 +120,9 @@ class OliController extends Controller
             }
             Storage::disk('public')->put($path, file_get_contents($photo));
             $data['image1'] = $filename;
+        } else {
+            $data['image1'] = $find->image1;
         }
-        // if($req->password){
-        //     // $data['password'] = Hash::make($req->password);
-        // }
 
         ProductOil::whereId($id)->update($data);
         return redirect()->route('admin.oli.index');

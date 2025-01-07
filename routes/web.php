@@ -24,7 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class, 'home']);
+Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/product/{id}', [ProductController::class, 'detail'])->name('detail.product');
 Route::get('/product', [ProductController::class, 'product'])->name('product');
 

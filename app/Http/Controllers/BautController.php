@@ -140,6 +140,8 @@ class BautController extends Controller
             }
             Storage::disk('public')->put($path, file_get_contents($photo));
             $data['image1'] = $filename;
+        } else {
+            $data['image1'] = $find->image1;
         }
 
         $photo_modal1 = $req->file('image_modal1');
@@ -152,6 +154,8 @@ class BautController extends Controller
             }
             Storage::disk('public')->put($path, file_get_contents($photo_modal1));
             $data['image_modal1'] = $filename;
+        } else {
+            $data['image_modal1'] = $find->image1;
         }
 
         $photo_modal2 = $req->file('image_modal2');
@@ -164,6 +168,8 @@ class BautController extends Controller
             }
             Storage::disk('public')->put($path, file_get_contents($photo_modal2));
             $data['image_modal2'] = $filename;
+        } else {
+            $data['image_modal2'] = $find->image1;
         }
 
         $photo_modal3 = $req->file('image_modal3');
@@ -176,12 +182,9 @@ class BautController extends Controller
             }
             Storage::disk('public')->put($path, file_get_contents($photo_modal3));
             $data['image_modal3'] = $filename;
+        } else {
+            $data['image_modal3'] = $find->image1;
         }
-
-        // if($req->password){
-        //     // $data['password'] = Hash::make($req->password);
-        // }
-
         ProductBolt::whereId($id)->update($data);
         return redirect()->route('admin.baut.index');
     }
