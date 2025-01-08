@@ -9,12 +9,18 @@ use Illuminate\Support\Facades\Validator;
 class CabangController extends Controller
 {
     //
-    public function index(){
+    public function index(Request $req){
+        $data = new Cabang();
+        if($req->get('search')){
+            $data = $data->where('name','LIKE','%'.$req->get('search').'%')
+            ->orWhere('email', 'LIKE', '%'.$req->get('search').'%')
+            ->orWhere('address', 'LIKE', '%'.$req->get('search').'%')
+            ->orWhere('phone', 'LIKE', '%'.$req->get('search').'%');
+        }
 
-        $data = Cabang::get();
-
+        $data = $data->get();
         // return view('welcome', compact('data'));
-        return view('cabanglist.index', compact('data'));
+        return view('cabanglist.index', compact('data', 'req'));
     }
 
     public function create(){

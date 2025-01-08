@@ -10,9 +10,18 @@ use Illuminate\Support\Facades\Validator;
 
 class OliController extends Controller
 {
-    public function index(){
-        $data = ProductOil::get();
-        return view('olilist.index', compact('data'));
+    public function index(Request $req){
+        $data = new ProductOil();
+        if($req->get('search')){
+            $data = $data->where('name','LIKE','%'.$req->get('search').'%')
+            ->orWhere('category_type', 'LIKE', '%'.$req->get('search').'%')
+            ->orWhere('api', 'LIKE', '%'.$req->get('search').'%')
+            ->orWhere('content', 'LIKE', '%'.$req->get('search').'%')
+            ->orWhere('is_active', 'LIKE', '%'.$req->get('search').'%');
+        }
+
+        $data = $data->get();
+        return view('olilist.index', compact('data', 'req'));
     }
 
     public function create(){

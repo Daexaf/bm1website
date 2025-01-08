@@ -12,7 +12,22 @@
       {{-- konten table --}}
       <div class="row">
         <div class="col-md-12">
-            <a href="{{route('admin.user.create')}}" class="btn btn-primary mb-3">Tambah Data</a>
+            <div class="d-flex justify-content-between mb-3">
+              <!-- Tombol Tambah Data -->
+              <a href="{{route('admin.user.create')}}" class="btn btn-primary mb-3">Tambah Data</a>
+              
+              <!-- Form Pencarian -->
+              <form action="{{route('admin.index')}}" method="GET" class="d-flex">
+                <div class="input-group input-group-sm float-right" style="width: 100%; max-width: 300px;">
+                  <input type="text" name="search" class="form-control" placeholder="Cari data" value="{{$req->get('search')}}">
+                  <div class="input-group-append mt-1 ml-2">
+                    <button type="submit" class="btn btn-default mr-2">
+                      <i class="fas fa-search fa-2x"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
           <div class="card">
             <div class="card-header">
               <h4 class="card-title">User List</h4>

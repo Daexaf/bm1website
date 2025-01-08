@@ -9,12 +9,16 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-    public function index(){
+    public function index(Request $req){
+        $data = new User();
+        if($req->get('search')){
+            $data = $data->where('name','LIKE','%'.$req->get('search').'%')
+            ->orWhere('email', 'LIKE', '%'.$req->get('search').'%');
+        }
 
-        $data = User::get();
-
+        $data = $data->get();
         // return view('welcome', compact('data'));
-        return view('userlist.index', compact('data'));
+        return view('userlist.index', compact('data', 'req'));
     }
 
     public function create(){

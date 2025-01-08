@@ -26,22 +26,16 @@ class ProductController extends Controller
     }
 
     public function product(Request $req){
-        $query = $req->input('query');
-        $oli = ProductOil::with('category')
-        ->where('is_active', true)
-        ->when($query, function ($queryBuilder) use ($query) {
-            return $queryBuilder->where('name', 'like', "%{$query}%")
-                ->orWhere('category_type', 'like', "%{$query}%");
-        })
-        ->get();
-        $baut = ProductBolt::with('category')
-        ->where('is_active', true)
-        ->when($query, function ($queryBuilder) use ($query) {
-            return $queryBuilder->where('coding', 'like', "%{$query}%")
-                ->orWhere('category_type', 'like', "%{$query}%");
-        })
-        ->get();
+        $search = $req->get('search');
+        $oliQuery = ProductOil::with('category')->where('is_active', true);
+        $bautQuery = ProductBolt::with('category')->where('is_active', true);
+        if ($search) {
+            $oliQuery->where('name', 'like', '%' . $search . '%');
+            $bautQuery->where('coding', 'like', '%' . $search . '%');
+        }
+        $oli = $oliQuery->get();
+        $baut = $bautQuery->get();
         $categories = ProductCategory::get();
-        return view('home.productContent', compact('oli', 'baut', 'categories'));
+        return view('home.productContent', compact('oli', 'baut', 'categories', 'search'));
     }
 }

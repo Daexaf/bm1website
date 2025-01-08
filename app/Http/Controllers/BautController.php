@@ -9,12 +9,19 @@ use Illuminate\Support\Facades\Validator;
 
 class BautController extends Controller
 {
-    public function index(){
+    public function index(Request $req){
+        $data = new ProductBolt();
+        if($req->get('search')){
+            $data = $data->where('coding','LIKE','%'.$req->get('search').'%')
+            ->orWhere('category_type', 'LIKE', '%'.$req->get('search').'%')
+            ->orWhere('kode', 'LIKE', '%'.$req->get('search').'%')
+            ->orWhere('ukuran', 'LIKE', '%'.$req->get('search').'%')
+            ->orWhere('barcode', 'LIKE', '%'.$req->get('search').'%');
+        }
 
-        $data = ProductBolt::get();
+        $data = $data->get();
 
-        // return view('welcome', compact('data'));
-        return view('bautlist.index', compact('data'));
+        return view('bautlist.index', compact('data', 'req'));
     }
 
     public function create(){
