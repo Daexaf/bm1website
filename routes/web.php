@@ -25,8 +25,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
-Route::get('/product/{id}', [ProductController::class, 'detail'])->name('detail.product');
-Route::get('/product', [ProductController::class, 'product'])->name('product');
+Route::get('/products/{category}/{barcode}', [ProductController::class, 'detail'])->name('detail.product');
+Route::get('/products', [ProductController::class, 'product'])->name('product');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');

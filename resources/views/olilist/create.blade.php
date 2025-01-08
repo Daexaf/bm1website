@@ -38,6 +38,20 @@
                           </div>
 
                           <div class="form-group">
+                            <label for="category_type">Category</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="category_type"
+                              name='category_type'
+                              placeholder="enter category"
+                            />
+                            @error('category_type')
+                                <small>{{$message}}</small>
+                            @enderror
+                          </div>
+
+                          <div class="form-group">
                             <label for="api">API</label>
                             <input
                               type="text"

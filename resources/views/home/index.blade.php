@@ -8,7 +8,7 @@
         <div class="carousel-item active">
           <div class="carousel-container">
             <h2 class="animate__animated animate__fadeInDown">Selamat Datang di Website BM1 OIL</h2>
-            <p class="animate__animated animate__fadeInUp">Rajanya sintetik oli motor</p>
+            <p class="animate__animated animate__fadeInUp">A Step ahead technology</p>
             {{-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> --}}
           </div>
         </div>
@@ -207,12 +207,13 @@
               <img src="{{asset('storage/product-oli/'.$oil->image1)}}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>{{$oil->name}}</h4>
+                <p>{{strtoupper($oil->category_type)}}</p>
                 <p>{{$oil->api}}</p>
                 <p>{{$oil->sae}}</p>
                 <p>{{$oil->content}}</p>
                 {{-- <a href="{{asset('storage/product-oli/'.$oil->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> --}}
                 <div class="mt-3">
-                  <a href="{{ route('detail.product', $oil->id) }}" title="More Details" class="details-link">
+                  <a href="{{ route('detail.product', ['category' => $oil->category_type, 'barcode' => $oil->barcode]) }}" >
                     <button class="btn btn-primary btn-block">More Details</button>
                   </a>
                 </div>
@@ -226,12 +227,13 @@
               <img src="{{asset('storage/product-baut/'.$bolt->image1)}}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>{{$bolt->coding}}</h4>
+                <p>{{strtoupper($bolt->category_type)}}</p>
                 <p>{{$bolt->kode}}</p>
                 <p>{{$bolt->ukuran}}</p>
                 {{-- <a href="{{asset('storage/product-baut/'.$bolt->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i>
                 </a> --}}
                 <div class="mb-3">
-                  <a href="{{ route('detail.product', $bolt->id) }}" title="More Details" class="details-link">
+                  <a href="{{ route('detail.product', ['category' => $bolt->category_type, 'barcode' => $bolt->barcode]) }}" >
                     <button class="btn btn-primary btn-block">More Details</button>
                   </a>
                 </div>

@@ -37,6 +37,21 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="category_type">Category</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="category_type"
+                                            name="category_type"
+                                            placeholder="Enter category"
+                                            value="{{ old('category_type', $data->category_type) }}"
+                                        />
+                                        @error('category_type')
+                                            <small>{{ $message }}</small>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="api">API</label>
                                         <input
                                             type="text"
@@ -224,11 +239,11 @@
                                         <label for="is_active">Is Active</label><br>
                                         <div>
                                           <input type="radio" id="is_active" name="is_active" value="1" {{ old('is_active') == 1 ? 'checked' : '' }}>
-                                          <label for="is_active">Active</label>
+                                          <label for="is_active">Aktif</label>
                                         </div>
                                         <div>
                                           <input type="radio" id="inactive" name="is_active" value="0" {{ old('is_active') == 0 ? 'checked' : '' }}>
-                                          <label for="inactive">Inactive</label>
+                                          <label for="inactive">Non-Aktif</label>
                                         </div>
                                         @error('is_active')
                                           <small>{{$message}}</small>

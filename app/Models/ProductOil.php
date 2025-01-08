@@ -12,6 +12,7 @@ class ProductOil extends Model
 
     protected $fillable = [
         'category_id',
+        'category_type',
         'name',
         'api',
         'sae',

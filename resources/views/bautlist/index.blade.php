@@ -26,6 +26,7 @@
                 <thead>
                   <tr>
                     <th>No</th>
+                    <th>Category</th>
                     <th>Coding</th>
                     <th>Code</th>
                     <th>Keterangan</th>
@@ -39,6 +40,7 @@
                     <th>Penggunaan 1</th>
                     <th>Penggunaan 2</th>
                     <th>Penggunaan 3</th>
+                    <th>Barcode</th>
                     <th>Status</th>
                     <th>Aksi</th>
                   </tr>
@@ -47,6 +49,7 @@
                   @foreach($data as $item)
                     <tr>
                       <td>{{ $loop->iteration }}</td>
+                      <td>{{ $item->category_type }}</td>
                       <td>{{ $item->coding }}</td>
                       <td>{{ $item->kode }}</td>
                       <td>{{ $item->keterangan }}</td>
@@ -102,6 +105,7 @@
                           -
                         @endif
                       </td>
+                      <td>{{ $item->barcode }}</td>
                       <td>
                         @if($item->is_active)
                             <p>Aktif</p>

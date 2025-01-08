@@ -23,6 +23,21 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="form-group">
                           <input type="hidden" name="category_id" value="7" />
+                          <div class="form-group">
+                            <label for="category_type">Category Type</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="category_type"
+                              name="category_type"
+                              placeholder="Masukkan category"
+                            />
+                            @error('category_type')
+                                <small>{{$message}}</small>
+                            @enderror
+                          </div>
+                          
+                          <div class="form-group">
                           <label for="coding">Coding</label>
                           <input
                             type="text"
@@ -189,6 +204,20 @@
                           <label for="image_modal3">Foto Penggunaan 3</label>
                           <input type="file" class="form-control" id="image_modal3" name="image_modal3" />
                           @error('image_modal3')
+                              <small>{{$message}}</small>
+                          @enderror
+                        </div>
+
+                        <div class="form-group">
+                          <label for="barcode">Barcode</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="barcode"
+                            name="barcode"
+                            placeholder="Masukkan barcode"
+                          />
+                          @error('barcode')
                               <small>{{$message}}</small>
                           @enderror
                         </div>

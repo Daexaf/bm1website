@@ -12,6 +12,7 @@ class ProductBolt extends Model
 
     protected $fillable = [
         'category_id',
+        'category_type',
         'coding',
         'kode',
         'keterangan',
@@ -26,6 +27,7 @@ class ProductBolt extends Model
         'image_modal1',
         'image_modal2',
         'image_modal3',
+        'barcode',
         'is_active',
     ];
 

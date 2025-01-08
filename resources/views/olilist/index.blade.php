@@ -27,6 +27,7 @@
                     <tr>
                       <th>No</th>
                       <th>Name</th>
+                      <th>Category</th>
                       <th>API</th>
                       <th>SAE</th>
                       <th>Content</th>
@@ -48,6 +49,7 @@
                     <tr>
                       <td>{{$loop->iteration}}</td>
                       <td>{{$item->name}}</td>
+                      <td>{{$item->category_type}}</td>
                       <td>{{$item->api}}</td>
                       <td>{{$item->sae}}</td>
                       <td>{{$item->content}}</td>

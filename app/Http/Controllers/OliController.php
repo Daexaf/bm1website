@@ -24,6 +24,7 @@ class OliController extends Controller
         [
             'category_id' => 'required',
             'name' => 'required',
+            'category_type' => 'required',
             'api' => 'required',
             'sae' => 'required',
             'content' => 'required',
@@ -47,6 +48,7 @@ class OliController extends Controller
         Storage::disk('public')->put($path, file_get_contents($photo));
         $data['category_id'] = $req->category_id;
         $data['name'] = $req->name;
+        $data['category_type'] = $req->category_type;
         $data['api'] = $req->api;
         $data['sae'] = $req->sae;
         $data['content'] = $req->content;
@@ -76,6 +78,7 @@ class OliController extends Controller
         [
             'category_id' => 'required',
             'name' => 'required',
+            'category_type' => 'required',
             'api' => 'required',
             'sae' => 'required',
             'content' => 'required',
@@ -97,6 +100,7 @@ class OliController extends Controller
 
         $data['category_id'] = $req->category_id;
         $data['name'] = $req->name;
+        $data['category_type'] = $req->category_type;
         $data['api'] = $req->api;
         $data['sae'] = $req->sae;
         $data['content'] = $req->content;

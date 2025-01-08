@@ -12,6 +12,7 @@
             <div class="col-lg-8" data-aos="fade-up">
                 <div class="portfolio-description">
                     <h2>{{$oli->name}}</h2>
+                    <p>CATEGORY: {{strtoupper($oli->category_type)}}</p>
                     <p>API: {{$oli->api}}</p>
                     <p>SAE: {{$oli->sae}}</p>
                     <p>CONTENT: {{$oli->content}}</p>
@@ -67,6 +68,7 @@
             <div class="col-lg-8" data-aos="fade-up">
                 <div class="portfolio-description">
                   <h2>Coding: {{$baut->coding}}</h2>
+                  <p>CATEGORY: {{strtoupper($oli->category_type)}}</p>
                   <p>Kode: {{$baut->kode}}</p>
                   <p>Ukuran: {{$baut->ukuran}}</p>
                   <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">

@@ -404,7 +404,7 @@
   <footer id="footer" class="footer dark-background">
     <div class="container">
       <h3 class="sitename">BM1 OIL</h3>
-      <p>Rajanya oli motor sintetik </p>
+      <p>A Step ahead technology</p>
       <div class="social-links d-flex justify-content-center">
         <a href=""><i class="bi bi-twitter-x"></i></a>
         <a href=""><i class="bi bi-facebook"></i></a>

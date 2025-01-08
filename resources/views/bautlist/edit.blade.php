@@ -22,8 +22,23 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-6 col-lg-4">
+                        <input type="hidden" name="category_id" value="7" />
                         <div class="form-group">
-                          <input type="hidden" name="category_id" value="7" />
+                          <label for="category_type">Category type</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="category_type"
+                            name="category_type"
+                            placeholder="Masukkan category"
+                            value="{{ old('category_type', $data->category_type) }}"
+                          />
+                          @error('category_type')
+                              <small>{{$message}}</small>
+                          @enderror
+                        </div>
+
+                        <div class="form-group">
                           <label for="coding">Coding</label>
                           <input
                             type="text"
@@ -216,14 +231,29 @@
                         </div>
 
                         <div class="form-group">
+                          <label for="barcode">Barcode</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="barcode"
+                            name="barcode"
+                            placeholder="Masukkan barcode"
+                            value="{{ old('barcode', $data->barcode) }}"
+                          />
+                          @error('barcode')
+                              <small>{{$message}}</small>
+                          @enderror
+                        </div>
+
+                        <div class="form-group">
                           <label for="is_active">Is Active</label><br>
                           <div>
                             <input type="radio" id="is_active" name="is_active" value="1" {{ old('is_active') == 1 ? 'checked' : '' }}>
-                            <label for="is_active">Active</label>
+                            <label for="is_active">Aktif</label>
                           </div>
                           <div>
                             <input type="radio" id="inactive" name="is_active" value="0" {{ old('is_active') == 0 ? 'checked' : '' }}>
-                            <label for="inactive">Inactive</label>
+                            <label for="inactive">Non-Aktif</label>
                           </div>
                           @error('is_active')
                             <small>{{$message}}</small>
