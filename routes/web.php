@@ -3,11 +3,14 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BautController;
 use App\Http\Controllers\CabangController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OliController;
 use App\Http\Controllers\ProductController;
+use App\Mail\Email;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +39,10 @@ Route::post('/register-proses', [LoginController::class, 'register_proses'])->na
 
 Route::get('/test', [HomeController::class, 'dashboard']);
 
+Route::get('/send', function(){
+    Mail::to('darkdax64@gmail.com')->send(new Email());
+    return "Email Success send";
+})->name('send.email');
 
 Route::group(['prefix' => 'admin', 'middleware' =>['auth'], 'as' => 'admin.'], function(){
     Route::get('/', [AdminController::class, 'index'])->name('index');

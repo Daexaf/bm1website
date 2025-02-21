@@ -406,11 +406,9 @@
       <h3 class="sitename">BM1 OIL</h3>
       <p>A Step ahead technology</p>
       <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-skype"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.youtube.com/@bm1oilindonesia932"><i class="bi bi-youtube"></i></a>
+        <a href="https://www.facebook.com/bm1oil/?locale=id_ID"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/bm1oil/"><i class="bi bi-instagram"></i></a>
       </div>
     </div>
   </footer>
