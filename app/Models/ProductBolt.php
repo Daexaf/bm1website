@@ -29,6 +29,7 @@ class ProductBolt extends Model
         'image_modal3',
         'barcode',
         'is_active',
+        'price',
     ];
 
     public function category(): BelongsTo

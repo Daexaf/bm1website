@@ -28,7 +28,8 @@ class ProductOil extends Model
         'npt',
         'npb',
         'barcode',
-        'is_active'
+        'is_active',
+        'price',
     ];
 
     public function category(): BelongsTo

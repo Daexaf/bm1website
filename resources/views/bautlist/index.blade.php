@@ -55,6 +55,7 @@
                     <th>Penggunaan 2</th>
                     <th>Penggunaan 3</th>
                     <th>Barcode</th>
+                    <th>Harga</th>
                     <th>Status</th>
                     <th>Aksi</th>
                   </tr>
@@ -120,6 +121,7 @@
                         @endif
                       </td>
                       <td>{{ $item->barcode }}</td>
+                      <td>{{ $item->price }}</td>
                       <td>
                         @if($item->is_active)
                             <p>Aktif</p>

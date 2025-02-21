@@ -62,7 +62,8 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($login)) {
-            return redirect()->route('admin.index');
+            // return redirect()->route('admin.index');
+            return redirect()->route('login')->with('success', 'Silahkan Login');
         } else {
             return redirect()->route('login')->with('failed', 'Email atau Password salah');
         }

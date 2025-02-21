@@ -79,6 +79,7 @@
                     <p>API: {{$oli->api}}</p>
                     <p>SAE: {{$oli->sae}}</p>
                     <p>CONTENT: {{$oli->content}}</p>
+                    <p>HARGA: {{$oli->harga}}</p>
                     <section id="features" class="features section">
                         <div class="container">
                             <div class="container section-title" data-aos="fade-up">
@@ -130,9 +131,10 @@
             <div class="row justify-content-between gy-4 mt-4">
             <div class="col-lg-8" data-aos="fade-up">
                 <div class="portfolio-description">
-                  <h2>Coding: {{$baut->coding}}</h2>
-                  <p>Kode: {{$baut->kode}}</p>
-                  <p>Ukuran: {{$baut->ukuran}}</p>
+                  <h2>CODING: {{$baut->coding}}</h2>
+                  <p>KODE: {{$baut->kode}}</p>
+                  <p>UKURAN: {{$baut->ukuran}}</p>
+                  <p>HARGA: {{$baut->harga}}</p>
                   <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     <h4>Contoh Penggunaan</h4>
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item fiselr-app">

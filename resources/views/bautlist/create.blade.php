@@ -221,6 +221,14 @@
                               <small>{{$message}}</small>
                           @enderror
                         </div>
+                        <div class="form-group">
+                          <label for="price">Price</label>
+                          <input type="number" step="500" name="price" id="price" class="form-control"
+                          value="{{ old('price', $data->price ?? '') }}">
+                        </div>
+                        @error('price')
+                          <small>{{$message}}</small>
+                        @enderror
                         <input type="hidden" name="is_active" value="1" />
                     </div>
                   </div>

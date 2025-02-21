@@ -246,6 +246,15 @@
                         </div>
 
                         <div class="form-group">
+                          <label for="price">Price</label>
+                          <input type="number" step="0.01" name="price" id="price" class="form-control"
+                              value="{{ old('price', $data->price ?? '') }}"/>
+                              @error('price')
+                              <small>{{ $message }}</small>
+                          @enderror
+                      </div>
+
+                        <div class="form-group">
                           <label for="is_active">Is Active</label><br>
                           <div>
                             <input type="radio" id="is_active" name="is_active" value="1" {{ old('is_active') == 1 ? 'checked' : '' }}>

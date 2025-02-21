@@ -48,6 +48,7 @@ class BautController extends Controller
             'image_modal2' => 'nullable|mimes:jpeg,png,jpg|max:2048',
             'image_modal3' => 'nullable|mimes:jpeg,png,jpg|max:2048',
             'barcode'=> 'required',
+            'price' => 'nullable|numeric',
             'is_active' => 'nullable',
         ]);
         if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
@@ -89,6 +90,7 @@ class BautController extends Controller
         $data['image_modal2'] = $filename_modal2;
         $data['image_modal3'] = $filename_modal3;
         $data['barcode'] = $req->barcode;
+        $data['price'] = $req->price;
         $data['is_active'] = $req->is_active;
 
         ProductBolt::create($data);
@@ -121,6 +123,7 @@ class BautController extends Controller
             'image_modal2' => 'nullable|mimes:jpeg,png,jpg|max:2048',
             'image_modal3' => 'nullable|mimes:jpeg,png,jpg|max:2048',
             'barcode'=> 'required',
+            'price'=> 'nullable|numeric',
             'is_active' => 'nullable',
         ]);
         if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
@@ -143,6 +146,7 @@ class BautController extends Controller
         $data['image_modal2'] = $req->image_modal2;
         $data['image_modal3'] = $req->image_modal3;
         $data['barcode'] = $req->barcode;
+        $data['price'] = $req->price;
         $data['is_active'] = $req->is_active;
 
         $photo = $req->file('image1');

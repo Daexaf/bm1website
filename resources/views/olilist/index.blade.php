@@ -56,6 +56,7 @@
                       <th>NPT</th>
                       <th>NPB</th>
                       <th>Barcode</th>
+                      <th>Harga</th>
                       <th>Aktif</th>
                       <th>Aksi</th>
                     </tr>
@@ -108,6 +109,7 @@
                       <td>{{$item->npt}}</td>
                       <td>{{$item->npb}}</td>
                       <td>{{$item->barcode}}</td>
+                      <td>{{$item->price}}</td>
                       <td>
                         @if($item->is_active)
                             <p>aktif</p>
