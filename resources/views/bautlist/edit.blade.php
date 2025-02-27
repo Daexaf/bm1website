@@ -257,15 +257,15 @@
                         <div class="form-group">
                           <label for="is_active">Is Active</label><br>
                           <div>
-                            <input type="radio" id="is_active" name="is_active" value="1" {{ old('is_active') == 1 ? 'checked' : '' }}>
-                            <label for="is_active">Aktif</label>
+                              <input type="radio" id="is_active_yes" name="is_active" value="1" {{ old('is_active', $data->is_active) == 1 ? 'checked' : '' }}>
+                              <label for="is_active_yes">Aktif</label>
                           </div>
                           <div>
-                            <input type="radio" id="inactive" name="is_active" value="0" {{ old('is_active') == 0 ? 'checked' : '' }}>
-                            <label for="inactive">Non-Aktif</label>
+                              <input type="radio" id="is_active_no" name="is_active" value="0" {{ old('is_active', $data->is_active) == 0 ? 'checked' : '' }}>
+                              <label for="is_active_no">Non-Aktif</label>
                           </div>
                           @error('is_active')
-                            <small>{{$message}}</small>
+                              <small>{{$message}}</small>
                           @enderror
                       </div>
                     </div>

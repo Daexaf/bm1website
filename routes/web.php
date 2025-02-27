@@ -24,7 +24,8 @@ use Illuminate\Support\Facades\Mail;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect()->route('home');
 });
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');

@@ -49,7 +49,7 @@
               Kami terus bertumbuh dengan upaya maksimal untuk menjadi merek oli otomotif nomor satu di Indonesia. Kami memastikan bahwa kualitas selalu menjadi prioritas utama dalam setiap langkah proses manufaktur kami. Kami juga memandu seluruh upaya penjualan dari awal hingga akhir untuk memberikan pengalaman penuh kepada pelanggan dalam menggunakan merek oli mesin berkualitas tinggi, yaitu BM1.
             </p>
             <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Bermitra dengan 13 partner di seluruh Indonesia</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Bermitra dengan 12 partner di seluruh Indonesia</span></li>
               <li><i class="bi bi-check2-circle"></i> <span>Bekerja bersama lebih dari 16.000 outlet</span></li>
               <li><i class="bi bi-check2-circle"></i> <span>Menyediakan berbagai jenis oli berkualitas</span></li>
             </ul>
