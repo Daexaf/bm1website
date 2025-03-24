@@ -90,6 +90,7 @@
                 <img src="{{asset('storage/product-oli/'.$oil->image1)}}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>{{$oil->name}}</h4>
+                  <p>{{$oil->price}}</p>
                   <p>{{$oil->api}}</p>
                   <p>{{$oil->sae}}</p>
                   <p>{{$oil->content}}</p>
@@ -109,6 +110,7 @@
                 <img src="{{asset('storage/product-baut/'.$bolt->image1)}}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>{{$bolt->coding}}</h4>
+                  <p>{{$bolt->price}}</p>
                   <p>{{$bolt->kode}}</p>
                   <p>{{$bolt->ukuran}}</p>
                   {{-- <a href="{{asset('storage/product-baut/'.$bolt->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i>

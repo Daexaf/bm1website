@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Mail\Email;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,10 +41,17 @@ Route::post('/register-proses', [LoginController::class, 'register_proses'])->na
 
 Route::get('/test', [HomeController::class, 'dashboard']);
 
-Route::get('/send', function(){
-    Mail::to('darkdax64@gmail.com')->send(new Email());
-    return "Email Success send";
-})->name('send.email');
+// Route::get('/send', function(){
+//     Mail::to('darkdax64@gmail.com')->send(new Email());
+//     return "Email Success send";
+// })->name('send.email');
+
+Route::post('/send-email', [ContactController::class, 'sendEmail'])->name('send.email');
+
+// Route::get('/send', function(){
+//     Mail::to('bm1oil.hosting@gmail.com')->send(new Email());
+//     return "Email Success send";
+// })->name('send.email');
 
 Route::group(['prefix' => 'admin', 'middleware' =>['auth'], 'as' => 'admin.'], function(){
     Route::get('/', [AdminController::class, 'index'])->name('index');

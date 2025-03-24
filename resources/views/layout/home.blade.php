@@ -9,8 +9,14 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{{asset('img/logo/logo.jpg')}} " rel="icon">
-  <link href="{{asset('img/logo/logo.jpg')}} " rel="apple-touch-icon">
+  {{-- <link href="{{asset('img/logo/logo.jpg')}} " rel="icon">
+  <link href="{{asset('img/logo/logo.jpg')}} " rel="apple-touch-icon"> --}}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/logo/logo.jpg') }}">
+  {{-- <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/logo/logo.jpg') }}">
+  <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('img/logo/logo.jpg') }}">
+  <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('img/logo/logo.jpg') }}"> --}}
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/logo/logo.jpg') }}">
+
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">

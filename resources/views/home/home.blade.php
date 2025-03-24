@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{{asset('sel/assets/vendor/bootstrap/css/bootstrap.min.css')}} " rel="stylesheet">
@@ -35,6 +36,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
 </head>
 
 <body class="index-page">
@@ -253,56 +255,50 @@
     </section><!-- /Features Section -->
     
      <!-- Portfolio Section -->
-     <section id="product" class="portfolio section">
-
+     {{-- <section id="product" class="portfolio section">
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <div class="container section-title text-center" data-aos="fade-up">
         <h2>Product Unggulan</h2>
         <p>Product Unggulan Kami</p>
       </div><!-- End Section Title -->
-
+    
       <div class="container">
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+          <!-- Portfolio Filters -->
+          <ul class="portfolio-filters isotope-filters d-flex flex-wrap justify-content-center gap-2" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">All</li>
             @foreach($categories as $category)
-                <li data-filter=".filter-{{ strtolower(str_replace(' ', '-', $category->name)) }}">{{ $category->name }}</li>
+              <li data-filter=".filter-{{ strtolower(str_replace(' ', '-', $category->name)) }}">{{ $category->name }}</li>
             @endforeach
-        </ul><!-- End Portfolio Filters -->
-
+          </ul><!-- End Portfolio Filters -->
+    
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            <!-- Produk Oli -->
             @foreach($oli->take(3) as $oil)
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $oil->category->name)) }}">
-              <img src="{{asset('storage/product-oli/'.$oil->image1)}}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>{{$oil->name}}</h4>
-                <p>{{$oil->api}}</p>
-                <p>{{$oil->sae}}</p>
-                <p>{{$oil->content}}</p>
-                {{-- <a href="{{asset('storage/product-oli/'.$oil->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> --}}
-                <div class="mt-3">
-                  <a href="{{ route('detail.product', $oil->id) }}" title="More Details" class="details-link">
-                    <button class="btn btn-primary btn-block">More Details</button>
-                  </a>
+            <div class="col-sm-12 col-md-6 col-lg-4 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $oil->category->name)) }}">
+              <div class="card">
+                <img src="{{ asset('storage/product-oli/'.$oil->image1) }}" class="card-img-top img-fluid" alt="{{ $oil->name }}">
+                <div class="card-body text-center">
+                  <h5 class="card-title">{{ $oil->name }}</h5>
+                  <p class="card-text">{{ $oil->api }}</p>
+                  <p class="card-text">{{ $oil->sae }}</p>
+                  <p class="card-text">{{ $oil->content }}</p>
+                  <a href="{{ route('detail.product', $oil->id) }}" class="btn btn-primary w-100">More Details</a>
                 </div>
-                {{-- <a href="{{ route('product.details', $oil->id) }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> --}}
               </div>
             </div><!-- End Portfolio Item -->
             @endforeach
-
+    
+            <!-- Produk Baut -->
             @foreach($baut->take(3) as $bolt)
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $bolt->category->name)) }}">
-              <img src="{{asset('storage/product-baut/'.$bolt->image1)}}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>{{$bolt->coding}}</h4>
-                <p>{{$bolt->kode}}</p>
-                <p>{{$bolt->ukuran}}</p>
-                {{-- <a href="{{asset('storage/product-baut/'.$bolt->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i>
-                </a> --}}
-                <div class="mb-3">
-                  <a href="{{ route('detail.product', $bolt->id) }}" title="More Details" class="details-link">
-                    <button class="btn btn-primary btn-block">More Details</button>
-                  </a>
+            <div class="col-sm-12 col-md-6 col-lg-4 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $bolt->category->name)) }}">
+              <div class="card">
+                <img src="{{ asset('storage/product-baut/'.$bolt->image1) }}" class="card-img-top img-fluid" alt="{{ $bolt->coding }}">
+                <div class="card-body text-center">
+                  <h5 class="card-title">{{ $bolt->coding }}</h5>
+                  <p class="card-text">{{ $bolt->kode }}</p>
+                  <p class="card-text">{{ $bolt->ukuran }}</p>
+                  <a href="{{ route('detail.product', $bolt->id) }}" class="btn btn-primary w-100">More Details</a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
@@ -310,7 +306,52 @@
           </div><!-- End Portfolio Container -->
         </div>
       </div>
-    </section><!-- /Portfolio Section -->
+    </section> --}}
+    <section id="product" class="portfolio section">
+      <div class="container section-title text-center" data-aos="fade-up">
+        <h2>Product Unggulan</h2>
+        <p>Product Unggulan Kami</p>
+      </div>
+    
+      <div class="container">
+        <div class="row gy-4">
+          @foreach($oli->take(3) as $oil)
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="{{ asset('storage/product-oli/'.$oil->image1) }}" class="card-img-top img-fluid" alt="{{ $oil->name }}">
+              <div class="card-body text-center">
+                <h5 class="card-title fw-bold">{{ $oil->name }}</h5>
+                <p class="card-text text-muted">Rp {{ number_format($oil->price, 0, ',', '.') }}</p>
+                <p class="card-text">{{ $oil->category->name }}</p>
+                <p class="card-text">{{ $oil->api }}</p>
+                <p class="card-text">{{ $oil->sae }}</p>
+                <p class="card-text">{{ $oil->content }}</p>
+                <a href="{{ route('detail.product', $oil->id) }}" class="btn btn-primary w-100">More Details</a>
+              </div>
+            </div>
+          </div>
+          @endforeach
+    
+          @foreach($baut->take(3) as $bolt)
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="{{ asset('storage/product-baut/'.$bolt->image1) }}" class="card-img-top img-fluid" alt="{{ $bolt->coding }}">
+              <div class="card-body text-center">
+                <h5 class="card-title fw-bold">{{ $bolt->coding }}</h5>
+                <p class="card-text text-muted">Rp {{ number_format($bolt->price, 0, ',', '.') }}</p>
+                <p class="card-text">{{ $bolt->kode }}</p>
+                <p class="card-text">{{ $bolt->ukuran }}</p>
+                <a href="{{ route('detail.product', $bolt->id) }}" class="btn btn-primary w-100">More Details</a>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+    </section>
+      <!-- /Portfolio Section -->
+    
+    <!-- /Portfolio Section -->
 
     <!-- Services Section -->
     <section id="partner" class="services section">
@@ -438,5 +479,7 @@
   <script src="{{asset('sel/assets/js/main.js')}}"></script>
 
 </body>
+
+
 
 </html>

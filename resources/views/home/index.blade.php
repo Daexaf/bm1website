@@ -155,40 +155,38 @@
     <!-- Features Section -->
     <section id="features" class="features section">
       <div class="container">
-        <div class="container section-title" data-aos="fade-up">
+        <div class="container section-title text-center" data-aos="fade-up">
           <p>Official Store Kami</p>
         </div><!-- End Section Title -->
-        <ul class="nav nav-tabs row  d-flex" data-aos="fade-up" data-aos-delay="100">
-          <li class="nav-item col-3">
-            <a class="nav-link active show" target="_blank" href="https://www.tokopedia.com/bm1-oil?source=universe&st=product">
-                <img src="{{asset('img/logo/e-commerce/tokopedia.png')}}" alt="Tokopedia" style="max-height: 50px;">
+    
+        <ul class="nav nav-tabs row d-flex justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
+          <li class="nav-item col-12 col-md-4 mb-3">
+            <a class="nav-link show d-flex align-items-center justify-content-center" target="_blank" href="https://www.tokopedia.com/bm1-oil?source=universe&st=product">
+              <img src="{{asset('img/logo/e-commerce/tokopedia.png')}}" alt="Tokopedia" class="img-fluid" style="max-height: 50px;">
             </a>
           </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" target="_blank" href="https://shopee.co.id/bm1oil?entryPoint=ShopBySearch&searchKeyword=bm1%20official%20shop">
-              <img src="{{asset('img/logo/e-commerce/shopee.png')}}" alt="Shopee" style="max-height: 50px;">
+          <li class="nav-item col-12 col-md-4 mb-3">
+            <a class="nav-link d-flex align-items-center justify-content-center" target="_blank" href="https://shopee.co.id/bm1oil?entryPoint=ShopBySearch&searchKeyword=bm1%20official%20shop">
+              <img src="{{asset('img/logo/e-commerce/shopee.png')}}" alt="Shopee" class="img-fluid" style="max-height: 50px;">
             </a>
           </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" target="_blank" href="https://www.bukalapak.com/u/bm1oil/label/mobil?from=omnisearch&from_keyword_history=false&search_source=omnisearch_user&source=navbar">
-                <img src="{{asset('img/logo/e-commerce/bukalapak.png')}}" alt="Bukalapak" style="max-height: 50px;">
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" target="_blank" href="https://www.blibli.com/merchant/bm1-oil-indonesia/BMO-60023?pickupPointCode=PP-3070717&fbbActivated=false">
-                <img src="{{asset('img/logo/e-commerce/blibli.png')}}" alt="Blibli" style="max-height: 50px;">
+          <li class="nav-item col-12 col-md-4 mb-3">
+            <a class="nav-link d-flex align-items-center justify-content-center" target="_blank" href="https://www.blibli.com/merchant/bm1-oil-indonesia/BMO-60023?pickupPointCode=PP-3070717&fbbActivated=false">
+              <img src="{{asset('img/logo/e-commerce/blibli.png')}}" alt="Blibli" class="img-fluid" style="max-height: 50px;">
             </a>
           </li>
         </ul><!-- End Tab Nav -->
       </div>
     </section><!-- /Features Section -->
     
+    <!-- /Features Section -->
+    
      <!-- Portfolio Section -->
      <section id="product" class="portfolio section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Product Unggulan</h2>
+        <h2>Product aja</h2>
         <p>Product Unggulan Kami</p>
       </div><!-- End Section Title -->
 
@@ -203,47 +201,51 @@
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
             @foreach($oli->take(3) as $oil)
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $oil->category->name)) }}">
-              <img src="{{asset('storage/product-oli/'.$oil->image1)}}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>{{$oil->name}}</h4>
-                <p>{{strtoupper($oil->category_type)}}</p>
-                <p>{{$oil->api}}</p>
-                <p>{{$oil->sae}}</p>
-                <p>{{$oil->content}}</p>
-                {{-- <a href="{{asset('storage/product-oli/'.$oil->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> --}}
-                <div class="mt-3">
-                  <a href="{{ route('detail.product', ['category' => $oil->category_type, 'barcode' => $oil->barcode]) }}" >
-                    <button class="btn btn-primary btn-block">More Details</button>
-                  </a>
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $oil->category->name)) }}" data-name="{{ strtolower($oil->name) }}">
+              <div class="card">
+                <img src="{{ asset('storage/product-oli/'.$oil->image1) }}" class="card-img-top product-img" alt="">
+                <div class="card-body text-center">
+                  <h4 class="card-title">{{ $oil->name }}</h4>
+                  <p class="card-text">Rp {{ number_format($oil->price, 0, ',', '.') }}</p>
+                  <p class="card-text">{{ strtoupper($oil->category_type) }}</p>
+                  <p class="card-text">{{$oil->api}}</p>
+                  <p class="card-text">{{$oil->sae}}</p>
+                  <p class="card-text">{{$oil->content}}</p>
+                  <a href="{{ route('detail.product', ['category' => $oil->category_type, 'barcode' => $oil->barcode]) }}" class="btn btn-primary">More Details</a>
                 </div>
-                {{-- <a href="{{ route('product.details', $oil->id) }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> --}}
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
             @endforeach
 
             @foreach($baut->take(3) as $bolt)
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $bolt->category->name)) }}">
-              <img src="{{asset('storage/product-baut/'.$bolt->image1)}}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>{{$bolt->coding}}</h4>
-                <p>{{strtoupper($bolt->category_type)}}</p>
-                <p>{{$bolt->kode}}</p>
-                <p>{{$bolt->ukuran}}</p>
-                {{-- <a href="{{asset('storage/product-baut/'.$bolt->image1)}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i>
-                </a> --}}
-                <div class="mb-3">
-                  <a href="{{ route('detail.product', ['category' => $bolt->category_type, 'barcode' => $bolt->barcode]) }}" >
-                    <button class="btn btn-primary btn-block">More Details</button>
-                  </a>
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $bolt->category->name)) }}" data-name="{{ strtolower($bolt->name) }}">
+              <div class="card">
+                <img src="{{ asset('storage/product-baut/'.$bolt->image1) }}" class="card-img-top product-img" alt="">
+                <div class="card-body text-center">
+                  <h4 class="card-title">{{ $bolt->coding }}</h4>
+                  <p class="card-text">{{ strtoupper($bolt->category_type) }}</p>
+                  <p class="card-text">Rp {{ number_format($bolt->price, 0, ',', '.') }}</p>
+                  <p class="card-text">{{$bolt->kode}}</p>
+                  <p class="card-text">{{$bolt->ukuran}}</p>
+                  <a href="{{ route('detail.product', ['category' => $bolt->category_type, 'barcode' => $bolt->barcode]) }}" class="btn btn-primary">More Details</a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
             @endforeach
           </div><!-- End Portfolio Container -->
         </div>
       </div>
     </section><!-- /Portfolio Section -->
+
+    <style>
+      .product-img {
+        width: 100%; /* Lebar penuh */
+        height: 250px; /* Tinggi tetap */
+        object-fit: contain; /* Menyesuaikan tanpa memotong */
+        /* background-color: #f8f8f8; Tambahkan latar belakang jika gambar tidak penuh */
+        padding: 10px;
+      }
+    </style>
 
     <!-- Services Section -->
     <section id="partner" class="services section">
@@ -262,7 +264,8 @@
                   <div class="icon">
                     <i class="bi bi-globe" style="color: #0dcaf0;"></i>
                   </div>
-                  <a href="{{ asset('sel/service-details.html') }}" class="stretched-link">
+                  {{-- <a href="{{ asset('sel/service-details.html') }}" class="stretched-link"> --}}
+                  <a href="{{ asset('#') }}" class="stretched-link">
                     <h3>{{ $item->name }}</h3>
                   </a>
                   <p>{{ $item->address }}</p>
@@ -309,32 +312,43 @@
             </div><!-- End Info Item -->
           </div>
           <div class="col-lg-8">
-            <form action="{{route('send.email')}}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              @csrf
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            <form action="{{ route('send.email') }}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                @csrf
+                <div class="row gy-4">
+                    <!-- Input Name -->
+                    <div class="col-md-6">
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                    </div>
+        
+                    <!-- Input Email -->
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                    </div>
+        
+                    <!-- Input Subject -->
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                    </div>
+        
+                    <!-- Textarea Message -->
+                    <div class="col-md-12">
+                        <textarea class="form-control" name="emailMessage" rows="6" placeholder="Message" required></textarea>
+                    </div>
+        
+                    <div class="col-md-12 text-center">
+                        <div class="loading d-none">Loading</div>
+                        <div class="sent-message d-none">Your message has been sent. Thank you!</div>
+                        <div class="error-message d-none"></div>
+        
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
                 </div>
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                  <button type="submit">Send Message</button>
-                </div>
-              </div>
             </form>
-          </div><!-- End Contact Form -->
+        </div>
         </div>
       </div>
-    </section><!-- /Contact Section -->
+    </section>
+    <!-- /Contact Section -->
   </main>
 @endsection

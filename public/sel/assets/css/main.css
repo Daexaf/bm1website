@@ -12,9 +12,9 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Inknut Antiqua", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Inknut Antiqua", sans-serif;
+  --nav-font: "Inknut Antiqua", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -64,6 +64,36 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+}
+
+.card-title {
+  font-family: var(--heading-font); /* Menggunakan font heading yang sudah ditentukan */
+  font-weight: 700; /* Membuat teks menjadi tebal */
+}
+
+.card-text {
+  font-family: var(--heading-font); /* Menggunakan font heading yang sudah ditentukan */
+  font-weight: 500; /* Membuat teks menjadi tebal */
+}
+
+.font-300 {
+  font-family: var(--heading-font); /* Menggunakan font heading yang sudah ditentukan */
+  font-weight: 300; /* Membuat teks menjadi tebal */
+}
+
+.font-500 {
+  font-family: var(--heading-font); /* Menggunakan font heading yang sudah ditentukan */
+  font-weight: 500; /* Membuat teks menjadi tebal */
+}
+
+.font-700 {
+  font-family: var(--heading-font); /* Menggunakan font heading yang sudah ditentukan */
+  font-weight: 700; /* Membuat teks menjadi tebal */
+}
+
+.font-900 {
+  font-family: var(--heading-font); /* Menggunakan font heading yang sudah ditentukan */
+  font-weight: 900; /* Membuat teks menjadi tebal */
 }
 
 a {
