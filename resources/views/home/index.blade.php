@@ -245,39 +245,66 @@
         /* background-color: #f8f8f8; Tambahkan latar belakang jika gambar tidak penuh */
         padding: 10px;
       }
+
+      .service-item {
+        background: #fff;
+        border-radius: 8px;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .service-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        width: 60px;
+        background: #f1f9ff;
+        border-radius: 50%;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 768px) {
+        .service-item {
+          text-align: left;
+          padding: 20px;
+        }
+      }
     </style>
 
     <!-- Services Section -->
     <section id="partner" class="services section">
-
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <div class="container section-title text-center" data-aos="fade-up">
         <h2>Partner</h2>
-        <p>Where are our partner</p>
+        <p>Where are our partners</p>
       </div><!-- End Section Title -->
+    
       <div class="container">
         <div class="row gy-4">
-          <div class="row gy-4">
-            @foreach($cabang as $item)
-              <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-item position-relative">
-                  <div class="icon">
-                    <i class="bi bi-globe" style="color: #0dcaf0;"></i>
-                  </div>
-                  {{-- <a href="{{ asset('sel/service-details.html') }}" class="stretched-link"> --}}
-                  <a href="{{ asset('#') }}" class="stretched-link">
-                    <h3>{{ $item->name }}</h3>
-                  </a>
-                  <p>{{ $item->address }}</p>
-                  <p>{{ $item->email }}</p>
-                  <p>{{ $item->phone }}</p>
+          @foreach($cabang as $item)
+            <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="100">
+              <div class="service-item position-relative p-4 text-center shadow-sm">
+                <div class="icon">
+                  <i class="bi bi-globe" style="color: #0dcaf0; font-size: 2rem;"></i>
                 </div>
+                <a href="{{ asset('#') }}" class="stretched-link">
+                  <h3 class="mt-3">{{ $item->name }}</h3>
+                </a>
+                <p class="text-muted">{{ $item->address }}</p>
+                <p class="text-muted"><i class="bi bi-envelope"></i> {{ $item->email }}</p>
+                <p class="text-muted"><i class="bi bi-telephone"></i> {{ $item->phone }}</p>
               </div>
-            @endforeach
-          </div>
+            </div>
+          @endforeach
         </div>
       </div>
-    </section><!-- /Services Section -->
+    </section>
+    <!-- /Services Section -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">

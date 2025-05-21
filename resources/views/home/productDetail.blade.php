@@ -32,35 +32,35 @@
                                             <td>{{ $oli->name ?? '-' }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Viskositas Kinematik (100°C)</td>
+                                            <td>Viskositas Kinematik (100°C) | mm2/dt | ASTM D445</td>
                                             <td>{{ $oli->viscosity_kinematic ?? '-' }} cSt</td>
                                         </tr>
                                         <tr>
-                                            <td>Indeks Viskositas</td>
+                                            <td>Indeks Viskositas | ASTM D2270</td>
                                             <td>{{ $oli->viscosity_index ?? '-' }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Viskositas Suhu Tinggi</td>
+                                            <td>Viskositas Suhu Tinggi | ASTM D4683</td>
                                             <td>{{ $oli->viscosity_hi_temp ?? '-' }} cP</td>
                                         </tr>
                                         <tr>
-                                            <td>Viskositas Suhu Rendah</td>
+                                            <td>Viskositas Suhu Rendah | ASTM D5293</td>
                                             <td>{{ $oli->viscosity_low_temp ?? '-' }} cP</td>
                                         </tr>
                                         <tr>
-                                            <td>Pour Point</td>
+                                            <td>Titik Tuang | °C | ASTM D97</td>
                                             <td>{{ $oli->pour_point ?? '-' }} °C</td>
                                         </tr>
                                         <tr>
-                                            <td>Total Base Number</td>
+                                            <td>Angka Basa Total | mgKOH/g | ASTM D2896</td>
                                             <td>{{ $oli->total_base_number ?? '-' }} mgKOH/g</td>
                                         </tr>
                                         <tr>
-                                            <td>Sulfated Ash</td>
+                                            <td>Abu Sulfat | %massa | ASTM D874</td>
                                             <td>{{ $oli->sulfated_ash ?? '-' }} %</td>
                                         </tr>
                                         <tr>
-                                            <td>Flash Point</td>
+                                            <td>Titik Nyala | °C | ASTM D92</td>
                                             <td>{{ $oli->flash_point ?? '-' }} °C</td>
                                         </tr>
                                     </tbody>

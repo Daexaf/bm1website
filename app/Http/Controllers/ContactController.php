@@ -32,10 +32,10 @@ class ContactController extends Controller
         
         Log::info('Email sent successfully');
         
-        return response()->json(['status' => 'OK']);
-    } catch (\Exception $e) {
-        Log::error('Error sending email: ' . $e->getMessage());
-        return response()->json(['status' => 'Error', 'message' => $e->getMessage()]);
-    }
+        return redirect()->back()->with('success', 'Email berhasil dikirim!');
+        } catch (\Exception $e) {
+            Log::error('Error sending email: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Gagal mengirim email: ' . $e->getMessage());
+        }
 }
 }
